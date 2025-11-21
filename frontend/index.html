@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialConnect</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-heart"></i>
+                <span>SocialConnect</span>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <i class="fas fa-search"></i>
+            </div>
+            <nav class="nav-links">
+                <a href="#" class="nav-link active"><i class="fas fa-home"></i></a>
+                <a href="#" class="nav-link"><i class="fas fa-paper-plane"></i></a>
+                <a href="#" class="nav-link" id="notifications-btn">
+                    <i class="fas fa-bell"></i>
+                     <span class="notification-count" style="display: none;">0</span>
+                </a>
+                <div class="user-menu">
+    <img src="images/background.jpg.jpg" alt="Profile" class="user-avatar">
+    <div class="dropdown-menu">
+        <a href="#" class="dropdown-item" id="profile-btn">
+            <i class="fas fa-user"></i> Profile
+        </a>
+        <a href="#" class="dropdown-item" id="settings-btn">
+            <i class="fas fa-cog"></i> Settings
+        </a>
+        <a href="#" class="dropdown-item" id="logout-btn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+    </div>
+</div>
+<div id="profile-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" data-modal="profile-modal">&times;</span>
+        <h2>Your Profile</h2>
+        <div class="profile-view">
+            <div class="profile-header">
+                <img src="images/default-avatar.jpg" alt="Profile" class="profile-large-avatar" id="profile-modal-avatar">
+                <div class="profile-info">
+                    <h3 id="profile-modal-username">Username</h3>
+                    <p id="profile-modal-bio">Your Bio</p>
+                    <div class="profile-stats">
+                        <span><strong id="profile-posts-count">0</strong> posts</span>
+                        <span><strong id="profile-followers-count">100K</strong> followers</span>
+                        <span><strong id="profile-following-count">20</strong> following</span>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-posts">
+                <h4>Your Posts</h4>
+                <div class="posts-grid" id="user-posts-grid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="settings-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" data-modal="settings-modal">&times;</span>
+        <h2>Settings</h2>
+        <form id="settings-form">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" id="settings-username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="settings-email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label>Bio</label>
+                <textarea id="settings-bio" name="bio" placeholder="Tell us about yourself..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Profile Picture URL</label>
+                <input type="text" id="settings-avatar" name="profilePicture" placeholder="Enter image URL">
+            </div>
+            <button type="submit" class="btn-primary">Save Changes</button>
+        </form>
+    </div>
+</div>
+            </nav>
+        </div>
+    </header>
+<div id="auth-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="auth-tabs">
+            <button class="tab-btn active" data-tab="login">Login</button>
+            <button class="tab-btn" data-tab="register">Register</button>
+        </div>
+        <form id="login-form" class="auth-form active">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <form id="register-form" class="auth-form">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <textarea name="bio" placeholder="Bio (optional)"></textarea>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</div>
+    <main class="main-content">
+        <div class="container">
+            <aside class="sidebar left-sidebar">
+                <div class="user-profile">
+                    <img src="images/default-avatar.jpg" alt="Profile" class="profile-avatar">
+                    <h3 class="username">Username</h3>
+                    <p class="user-bio">This is my amazing bio!</p>
+                    <div class="user-stats">
+                        <div class="stat">
+                            <span class="count">125</span>
+                            <span>Posts</span>
+                        </div>
+                        <div class="stat">
+                            <span class="count">1.2K</span>
+                            <span>Followers</span>
+                        </div>
+                        <div class="stat">
+                            <span class="count">450</span>
+                            <span>Following</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="connect-section">
+    <h4>Connect With Me</h4>
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/hayqa-zahid-a3b7702aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
+           target="_blank" class="social-icon linkedin" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://www.instagram.com/haiqqazahid?igsh=MXAxMmN1ODNlZDk0aw==" 
+           target="_blank" class="social-icon instagram" title="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://github.com/HayqaZahid" 
+           target="_blank" class="social-icon github" title="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://vercel.com/hayqazahids-projects" 
+           target="_blank" class="social-icon vercel" title="Vercel">
+            <i class="fas fa-cloud"></i>
+        </a>
+    </div>
+    <p class="connect-text">Click any icon to visit my profile</p>
+</div>
+            </aside>
+            <section class="feed">
+                <div class="create-post">
+                    <div class="post-input">
+                        <img src="images/default-avatar.jpg" alt="Avatar" class="avatar-sm">
+                        <input type="text" placeholder="What's on your mind?">
+                    </div>
+                    <div class="post-actions">
+                        <button class="post-submit">Post</button>
+                    </div>
+                </div>
+                <div class="posts-container">
+                </div>
+            </section>
+<aside class="sidebar right-sidebar">
+    <div class="notifications-panel">
+        <div class="notifications-header">
+            <h4>Notifications</h4>
+            <button class="mark-all-read" id="mark-all-read-btn">Mark all read</button>
+        </div>
+        <div class="notifications-list" id="notifications-list">
+        </div>
+    </div>
+    <div class="trending">
+        <h4>Trending</h4>
+        <div class="trending-list">
+            <div class="trending-item">#CodeAlpha</div>
+            <div class="trending-item">#SocialMedia</div>
+            <div class="trending-item">#NewApp</div>
+            <div class="trending-item">#WebDevelopment</div>
+            <div class="trending-item">#MERNSTACK</div>
+            <div class="trending-item">#ConnectWithWorld</div>
+        </div>
+    </div>
+</aside>
+        </div>
+    </main>
+     <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About SocialConnect</h3>
+                    <p>SocialConnect is a modern social platform designed to help you stay connected with friends, family, and communities that share your interests.</p>
+                    <div class="social-icons">
+                        <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#"><i class="fas fa-users"></i> Profile</a></li>
+                        <li><a href="#"><i class="fas fa-calendar-alt"></i> Trending</a></li>
+                        <li><a href="#"><i class="fas fa-bell"></i> Notifications</a></li>
+                        <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Features</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-comments"></i> Messaging</a></li>
+                        <li><a href="#"><i class="fas fa-images"></i> Photo Sharing</a></li>
+                        <li><a href="#"><i class="fas fa-video"></i> Video Sharing</a></li>
+                        
+                        <li><a href="#"><i class="fas fa-shopping-bag"></i> Comments</a></li>
+                    </ul>
+                </div>               
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SocialConnect. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">About</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Help Center</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<!-- Hidden Admin Controls - Add this before closing body tag -->
+<div class="admin-controls" style="position: fixed; bottom: 10px; right: 10px; z-index: 1000; background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); display: none;">
+    <h4>Admin Controls</h4>
+    <button onclick="createSamplePosts()" class="btn-primary" style="margin: 5px;">Add Sample Posts</button>
+    <button onclick="clearSampleData()" class="btn-secondary" style="margin: 5px;">Clear Samples</button>
+    <button onclick="toggleAdminControls()" class="btn-secondary" style="margin: 5px;">Hide</button>
+</div>
+
+<button onclick="toggleAdminControls()" style="position: fixed; bottom: 10px; right: 10px; z-index: 999; background: var(--primary-color); color: white; border: none; padding: 10px; border-radius: 50%; cursor: pointer;">
+    ⚙️
+</button>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
