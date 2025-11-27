@@ -33,8 +33,8 @@ const postSubmitBtn = document.querySelector('.post-submit');
 const postsContainer = document.querySelector('.posts-container');
 document.addEventListener('DOMContentLoaded', function() {
     checkAuthStatus();
-    loadPosts();
-    loadNotifications();
+    //loadPosts();
+    //loadNotifications();
     setupEventListeners();
 });
 function setupEventListeners() {
@@ -1297,4 +1297,23 @@ function addSamplePost(content, image = null) {
     renderPosts();
 }
 
+
+function checkAuthStatus() {
+    const demoUser = {
+        _id: '78',
+        username: 'hayqa',
+        email: 'hayqa@gmail.com',
+        bio: 'Web Developer & Designer',
+        profilePicture: 'images/profilepic.jpeg',
+        followers: [],
+        following: []
+    };
+    
+    localStorage.setItem('user', JSON.stringify(demoUser));
+    localStorage.setItem('token', 'demo-token');
+    currentUser = demoUser;
+    
+    closeAuthModal();
+    showAuthenticatedUI();
+}
 
